@@ -118,9 +118,9 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: <%= ENV['GISCUS_REPO'] %> 
+    repo: selin-topcu/selin-topcu.github.io-comment
     repo_id: <%= ENV['GISCUS_REPO_ID'] %> 
-    category: <%= ENV['GISCUS_CATEGORY'] %> 
+    category: General
     category_id: <%= ENV['GISCUS_CATEGORY_ID'] %>
     mapping: pathname
     reactions_enabled: 1
