@@ -119,9 +119,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: selin-topcu/selin-topcu.github.io-comment
-    repo_id: <%= ENV['GISCUS_REPO_ID'] %> 
+    repo_id: ${{ secrets.GISCUS_REPO_ID }}
     category: General
-    category_id: <%= ENV['GISCUS_CATEGORY_ID'] %>
+    category_id: ${{ secrets.GISCUS_CATEGORY_ID }}
     mapping: pathname
     reactions_enabled: 1
     input_position: bottom
