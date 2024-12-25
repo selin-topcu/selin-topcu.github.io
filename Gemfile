@@ -17,4 +17,9 @@ gem 'jekyll-minifier'
 gem 'csv'
 gem 'base64'
 gem 'dotenv'
-gem "jekyll-polyglot"
+group :jekyll_plugins do
+    
+  gem "jekyll-polyglot"
+  gem "jekyll-seo-tag", git:"https://github.com/aturret/jekyll-seo-tag-polyglot.git" # my version of the plugin
+    
+end
