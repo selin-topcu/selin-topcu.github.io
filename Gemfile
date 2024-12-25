@@ -17,3 +17,4 @@ gem 'jekyll-minifier'
 gem 'csv'
 gem 'base64'
 gem 'dotenv'
+gem "jekyll-polyglot"

@@ -1,10 +1,10 @@
 ---
-title: Full Stack Spring Boot React Microservices Task Management - 1
+title: Full Stack Spring Boot React Microservices Görev Yönetimi - 1
 date: 2024-12-15 13:14 +0300
-categories: [Tutorial]
+categories: [Full Stack App, Full Stack Spring Boot React Microservices Task Management]
 tags: [spring-boot, react, microservices, task-management, java, mysql, redux, tailwindcss, material-ui, full-stack, web-development, api, rest, deployment, docker, cloud, devops, frontend, backend, scalable, responsive, user-interface, full-stack-development, javascript, java-backend, react-frontend, create]
 author: selin-topcu
-
+lang: tr
 ---
 
 # Create App

@@ -126,7 +126,6 @@ comments:
     reactions_enabled: 1
     input_position: bottom
     theme: preferred_color_scheme
-    lang: en
     loading: lazy
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
@@ -170,7 +169,9 @@ collections:
   tabs:
     output: true
     sort_by: order
-
+  projects:
+    output: true
+    permalink: /:collection/:title/
 defaults:
   - scope:
       path: "" # An empty string here means all files in the project
@@ -206,15 +207,14 @@ compress_html:
     envs: [development]
 
 exclude:
-  - "*.gem"
-  - "*.gemspec"
+  # - "*.gem"
+  # - "*.gemspec"
   - docs
   - tools
   - README.md
   - LICENSE
-  - purgecss.js
-  - rollup.config.js
-  - "package*.json"
+  # - "*.config.js"
+  # - package*.json
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -224,3 +224,10 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+plugins:
+  - jekyll-polyglot
+languages: ["en", "tr"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "images", "assets", "public"]
+parallel_localization: false

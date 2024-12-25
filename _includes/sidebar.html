@@ -40,6 +40,28 @@
     </ul>
   </nav>
 
+  <div class="d-flex justify-content-center align-items-center w-100">
+    {% for tongue in site.languages %}
+      <p class="lang-name-box" style="display: inline-block; margin-right: 10px;">
+        {% if tongue == site.active_lang %}
+          <!-- Active Language -->
+          <a class="lang-name" id="current-lang">
+            <img src="/assets/img/flag-icon/{{ site.active_lang }}.png" alt="{{ site.active_lang }}" />
+          </a>
+        {% else %}
+          <!-- Pasive Language -->
+          <a class="lang-name" {% static_href %}href="{% if tongue == site.default_lang %}{{ site.baseurl }}{{ page.url }}{% else %}{{ site.baseurl }}/{{ tongue }}{{ page.url }}{% endif %}"{% endstatic_href %}>
+            {% if site.active_lang == 'tr' %}
+              <img src="/assets/img/flag-icon/en.png" style="opacity: 0.5;" alt="English" title="English" />
+            {% else %}
+              <img src="/assets/img/flag-icon/tr.png" style="opacity: 0.5;" alt="Türkçe" title="Türkçe" />
+            {% endif %}
+          </a>
+        {% endif %}
+      </p>
+    {% endfor %}
+  </div>
+    
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
     {% unless site.theme_mode %}
       <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
