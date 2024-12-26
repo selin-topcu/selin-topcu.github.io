@@ -44,13 +44,19 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
+          
+      - name: Replace Secrets in _config.yml
+        run: |
+          sed -i "s|GISCUS_REPO_ID_PLACEHOLDER|${{ secrets.GISCUS_REPO_ID }}|g" _config.yml
+          sed -i "s|GISCUS_CATEGORY_ID_PLACEHOLDER|${{ secrets.GISCUS_CATEGORY_ID }}|g"
+        env:
+          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
+          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
-          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
-          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
       # - name: Test site
       #   run: |
       #     bundle exec htmlproofer _site \
