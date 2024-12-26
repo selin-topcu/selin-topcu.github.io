@@ -45,6 +45,13 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+      - name: Check _config.yml existence
+        run: |
+          if [ ! -f "_config.yml" ]; then
+            echo "_config.yml does not exist."
+            exit 1
+          fi
+
       - name: Debug Secrets
         run: |
           if [ -z "${{ secrets.GISCUS_REPO_ID }}" ]; then
