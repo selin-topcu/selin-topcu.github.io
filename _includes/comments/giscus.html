@@ -6,8 +6,10 @@
 
     let lang = '{{ site.active_lang }}';
     {%- comment -%} https://github.com/giscus/giscus/tree/main/locales {%- endcomment -%}
-    if (lang.length > 2 && !lang.startsWith('zh')) {
-      lang = lang.slice(0, 2);
+    
+    let dataMappingTr = '';
+    if (lang.startsWith('en')) {
+      dataMappingTr = 'tr';
     }
 
     let giscusAttributes = {
@@ -17,6 +19,7 @@
       'data-category': '{{ site.comments.giscus.category }}',
       'data-category-id': '{{ site.comments.giscus.category_id }}',
       'data-mapping': '{{ site.comments.giscus.mapping | default: 'pathname' }}',
+      'data-term': '{{ site.baseurl }}{{ page.url }}',
       'data-strict' : '{{ site.comments.giscus.strict | default: '0' }}',
       'data-reactions-enabled': '{{ site.comments.giscus.reactions_enabled | default: '1' }}',
       'data-emit-metadata': '0',

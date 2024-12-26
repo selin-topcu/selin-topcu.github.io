@@ -120,9 +120,9 @@ comments:
   giscus:
     repo: selin-topcu/selin-topcu.github.io-comment
     repo_id: ${{ secrets.GISCUS_REPO_ID }}
-    category: General
+    category: Announcements
     category_id: ${{ secrets.GISCUS_CATEGORY_ID }}
-    mapping: pathname
+    mapping: specific
     reactions_enabled: 1
     input_position: bottom
     theme: preferred_color_scheme
