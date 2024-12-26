@@ -58,7 +58,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: ${{ secrets.GOOGLE_ANALYTICS_ID }} # fill in your Google Analytics ID
+    id: G-Q0SGTKZHJL # fill in your Google Analytics ID
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -119,9 +119,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: selin-topcu/selin-topcu.github.io-comment
-    repo_id: GISCUS_REPO_ID_PLACEHOLDER
+    repo_id: R_kgDONfaBrA
     category: Announcements
-    category_id: GISCUS_CATEGORY_ID_PLACEHOLDER
+    category_id: DIC_kwDONfaBrM4ClVp9
     mapping: specific
     reactions_enabled: 1
     input_position: bottom

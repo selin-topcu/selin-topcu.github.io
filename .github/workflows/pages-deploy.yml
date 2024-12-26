@@ -45,35 +45,6 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      - name: Check _config.yml existence
-        run: |
-          if [ ! -f "_config.yml" ]; then
-            echo "_config.yml does not exist."
-            exit 1
-          fi
-
-      - name: Debug Secrets
-        run: |
-          if [ -z "${{ secrets.GISCUS_REPO_ID }}" ]; then
-            echo "GISCUS_REPO_ID is not set."
-          else
-            echo "GISCUS_REPO_ID is set."
-          fi
-          
-          if [ -z "${{ secrets.GISCUS_CATEGORY_ID }}" ]; then
-            echo "GISCUS_CATEGORY_ID is not set."
-          else
-            echo "GISCUS_CATEGORY_ID is set."
-          fi
-
-      - name: Replace Secrets in _config.yml
-        run: |
-          sed -i "s|GISCUS_REPO_ID_PLACEHOLDER|${{ secrets.GISCUS_REPO_ID }}|g" _config.yml
-          sed -i "s|GISCUS_CATEGORY_ID_PLACEHOLDER|${{ secrets.GISCUS_CATEGORY_ID }}|g"
-        env:
-          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
-          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
-
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
