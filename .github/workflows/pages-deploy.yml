@@ -45,16 +45,27 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      - name: Replace Secrets in _config.yml
+      - name: Debug Secrets
         run: |
-          sed -i "s|GISCUS_REPO_ID_PLACEHOLDER|${{ secrets.GISCUS_REPO_ID }}|g" _config.yml
-          sed -i "s|GISCUS_CATEGORY_ID_PLACEHOLDER|${{ secrets.GISCUS_CATEGORY_ID }}|g" _config.yml
-      - name: Replace Secrets in _config.yml
-        run: |
-          echo "Replacing placeholders in _config.yml"
-          sed -i "s|GISCUS_REPO_ID_PLACEHOLDER|${{ secrets.GISCUS_REPO_ID }}|g" _config.yml
-          sed -i "s|GISCUS_CATEGORY_ID_PLACEHOLDER|${{ secrets.GISCUS_CATEGORY_ID }}|g" _config.yml
+          if [ -z "${{ secrets.GISCUS_REPO_ID }}" ]; then
+            echo "GISCUS_REPO_ID is not set."
+          else
+            echo "GISCUS_REPO_ID is set."
+          fi
+          
+          if [ -z "${{ secrets.GISCUS_CATEGORY_ID }}" ]; then
+            echo "GISCUS_CATEGORY_ID is not set."
+          else
+            echo "GISCUS_CATEGORY_ID is set."
+          fi
 
+      - name: Replace Secrets in _config.yml
+        run: |
+          sed -i "s|GISCUS_REPO_ID_PLACEHOLDER|${{ secrets.GISCUS_REPO_ID }}|g" _config.yml
+          sed -i "s|GISCUS_CATEGORY_ID_PLACEHOLDER|${{ secrets.GISCUS_CATEGORY_ID }}|g"
+        env:
+          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
+          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
