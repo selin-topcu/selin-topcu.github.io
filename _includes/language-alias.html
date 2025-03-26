@@ -65,6 +65,10 @@
     {{ 'YAML' }}
   {% when 'css', 'html', 'scss', 'ssh', 'toml', 'xml', 'yaml', 'json' %}
     {{ _lang | upcase }}
+  {% when 'Java', 'java', 'j' %}
+    {{ 'Java' }}  
+  {% when 'Curl', 'curl' %}
+    {{ 'bash' }}
   {% else %}
     {{ _lang | capitalize }}
 {% endcase %}
