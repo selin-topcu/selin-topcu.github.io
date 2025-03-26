@@ -1,13 +1,11 @@
 ---
 title: Spring Boot Postgresql Crud App
 date: 2024-12-30 13:14 +0300
-categories: [Spring Boot Postgresql Crud App]
-tags: [spring-boot, react, java, postgresql, material-ui, web-development, api, rest-api, deployment, frontend, backend, scalable, user-interface, full-stack-development, java-backend, crud, basic-app, todo, to-do app]
+categories: [Backend, Spring Boot Postgresql Crud App]
+tags: [spring-boot, react, java, postgresql, material-ui, web-development, api, rest-api, deployment, frontend, backend, scalable, user-interface, java-backend, crud, basic-app, todo, to-do app]
 author: selin-topcu
 lang: en
 ---
-
-# Spring Boot PostgreSQL CRUD Application
 
 ## Let's Create the Backend with Spring Initializr
 
